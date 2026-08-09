@@ -11,6 +11,9 @@ import {
   Code2,
   PenLine,
   BarChart3,
+  DatabaseZap,
+  FileCode,
+  ScanFace,
 } from "lucide-react";
 import "./styles.css";
 import profilePic from "./../public/8d0aec01-5351-415f-bf90-b2c47956f254.png";
@@ -63,9 +66,9 @@ function App() {
           <div className="hero-copy">
             <p className="eyebrow">ECONOMICS × TECHNOLOGY × WRITING</p>
             <h1>
-              Hi, I'm <span>Shakibur Rahman Pranto.</span>
+              Hi, I'm <span>Shakibur Rahman </span>
             </h1>
-            <h2>Front-End Web Developer & Economics Student.</h2>
+            <h2>Full-Stack Web Developer & Economics Student.</h2>
             <p className="hero-text">
               I build responsive, user-friendly web experiences while studying
               Economics at Islamic University, Kushtia. I also write about
@@ -135,6 +138,41 @@ function App() {
           </div>
         </section>
 
+        <section id="perspective" className="section">
+          <div className="section-heading">
+            <p className="eyebrow">VISION</p>
+            <h2>From Economics to Code</h2>
+          </div>
+
+          <div className="about-grid">
+            <p>
+              I didn't start learning to code because I wanted to leave
+              Economics behind. In many ways, Economics is actually what made me
+              interested in building things.
+            </p>
+
+            <p>
+              Studying Economics taught me to look at a problem, understand what
+              is causing it, think about the choices available, and find a
+              practical solution. Over time, I realized that I could approach
+              software in much the same way.
+            </p>
+
+            <p>
+              When I build something, I don't just think about how it should
+              look. I think about the problem it is trying to solve, how people
+              will use it, and how the different parts should work together.
+            </p>
+
+            <p>
+              That's what I enjoy about development. Economics taught me how to
+              <strong> think through problems</strong>; programming gives me the
+              tools to{" "}
+              <strong> turn those solutions into something real</strong>.
+            </p>
+          </div>
+        </section>
+
         <section id="skills" className="section">
           <div className="section-heading">
             <p className="eyebrow">02 — SKILLS</p>
@@ -144,7 +182,7 @@ function App() {
             <div className="skill-card">
               <Code2 size={28} />
               <h3>Front-End Development</h3>
-              <p>HTML, CSS, JavaScript, React, responsive web design.</p>
+              <p>HTML, CSS, JavaScript, React, Responsive web design.</p>
             </div>
             <div className="skill-card">
               <BarChart3 size={28} />
@@ -159,9 +197,27 @@ function App() {
               <p>Technical writing, academic writing, and content writing.</p>
             </div>
             <div className="skill-card">
+              <FileCode size={28} />
+              <h3>Back-End Development</h3>
+              <p>Node.js ,Express.js</p>
+            </div>
+            <div className="skill-card">
+              <ScanFace size={28} />
+              <h3>Authentication / Services</h3>
+              <p>Firebase Authentication , Stripe.</p>
+            </div>
+            <div className="skill-card">
+              <DatabaseZap size={28} />
+              <h3>Database</h3>
+              <p>MongoDB</p>
+            </div>
+            <div className="skill-card">
               <Github size={28} />
               <h3>Development Workflow</h3>
-              <p>Git and GitHub for version control and project management.</p>
+              <p>
+                Git and GitHub and Vite for version control and project
+                management.
+              </p>
             </div>
           </div>
           <div className="tech-list">
@@ -246,7 +302,7 @@ function App() {
             <div className="timeline-item">
               <span>2020</span>
               <div>
-                <h3>BAF Shaheen School, Jashore</h3>
+                <h3>BAF Shaheen School & College, Jashore</h3>
                 <p>Secondary School Certificate · Science Group · GPA 5.00</p>
               </div>
             </div>
@@ -282,6 +338,7 @@ function App() {
             </a>
             <a href="tel:+8801784503769">
               <Phone size={19} /> +880 1784 503 769
+              <Phone size={19} /> +880 1521 704 643
             </a>
           </div>
           <div className="actions">
