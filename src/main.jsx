@@ -63,7 +63,7 @@ function App() {
           <div className="hero-copy">
             <p className="eyebrow">ECONOMICS × TECHNOLOGY × WRITING</p>
             <h1>
-              Hi, I'm <span>Shakibur Rahman.</span>
+              Hi, I'm <span>Shakibur Rahman Pranto.</span>
             </h1>
             <h2>Front-End Web Developer & Economics Student.</h2>
             <p className="hero-text">
@@ -105,6 +105,7 @@ function App() {
                   height: "440px",
                   objectFit: "",
                   borderRadius: "10%",
+                  padding: "10px",
                 }}
               />
             </div>
