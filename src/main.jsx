@@ -25,16 +25,33 @@ const projects = [
   {
     title: "Dragon News",
     description:
-      "A responsive news platform focused on clean layouts, category-based content, and a smooth reading experience.",
+      "A responsive news platform focused on clean layouts, category-based content, and a smooth reading experience.Dragon News is a news platform I built to practice creating a clean and structured reading experience. I wanted the interface to feel simple and easy to navigate, especially when users are moving between different categories of news.While building it, I focused on responsive layouts, organizing content clearly, and making the overall experience feel smooth across different screen sizes. It helped me understand that building a good frontend isn't only about making something look attractive — it's also about thinking about how someone will actually use it. ",
     tags: ["React", "JavaScript", "Responsive UI"],
     link: "https://dragonewspranto.netlify.app",
   },
   {
     title: "Pranto Mess Blog",
     description:
-      "A blog-style web project designed to present content in a simple, readable, user-friendly interface.",
+      "A blog-style web project designed to present content in a simple, readable, user-friendly interface.Pranto Mess Blog is a simple blog-style web project where I focused on presenting written content in a clean and readable way. Rather than filling the interface with unnecessary elements, I wanted the content itself to remain the main focus.Building it gave me a chance to work more on spacing, typography, layout, and the small details that make a website comfortable to read. It also connected naturally with my interest in writing, because I could think about the experience from both sides — as someone creating content and as someone reading it.",
     tags: ["React", "CSS", "Web Design"],
     link: "https://prantomess-blog.netlify.app/",
+  },
+  {
+    title: "Frame Flow",
+    description:
+      "A responsive and interactive gallery featuring dynamic categories, search, lightbox navigation, smooth animations, and a polished UI. ",
+    tags: ["React", "CSS", "Vite", " JavaScript", "Web Design"],
+    link: "https://frame-flow-premium-gallery-ix6y.vercel.app/",
+  },
+  {
+    title: "CalcSpace",
+
+    description:
+      "A modern and responsive calculator featuring basic arithmetic operations, real-time calculations, keyboard support, calculation history, smooth interactions, and a polished UI.",
+
+    tags: ["React", "CSS", "Vite", "JavaScript", "Web Design"],
+
+    link: "https://calcspace-calculator.vercel.app/",
   },
 ];
 
@@ -140,7 +157,7 @@ function App() {
 
         <section id="perspective" className="section">
           <div className="section-heading">
-            <p className="eyebrow">VISION</p>
+            <p className="eyebrow">02 — VISION</p>
             <h2>From Economics to Code</h2>
           </div>
 
@@ -175,7 +192,7 @@ function App() {
 
         <section id="skills" className="section">
           <div className="section-heading">
-            <p className="eyebrow">02 — SKILLS</p>
+            <p className="eyebrow">03 — SKILLS</p>
             <h2>What I work with.</h2>
           </div>
           <div className="skill-grid">
@@ -238,7 +255,7 @@ function App() {
         <section id="projects" className="section">
           <div className="section-heading row">
             <div>
-              <p className="eyebrow">03 — PROJECTS</p>
+              <p className="eyebrow">04 — PROJECTS</p>
               <h2>Selected work.</h2>
             </div>
             <a
@@ -278,7 +295,7 @@ function App() {
 
         <section id="education" className="section">
           <div className="section-heading">
-            <p className="eyebrow">04 — EDUCATION</p>
+            <p className="eyebrow">05 — EDUCATION</p>
             <h2>Academic background.</h2>
           </div>
           <div className="timeline">
@@ -334,10 +351,12 @@ function App() {
           </p>
           <div className="contact-links">
             <a href="mailto:prantome98@gmail.com">
-              <Mail size={19} /> prantome98@gmail.com
+              <Mail size={19} /> shakiburrahmanpranto@gmail.com
             </a>
             <a href="tel:+8801784503769">
               <Phone size={19} /> +880 1784 503 769
+            </a>
+            <a href="tel:+8801521704643">
               <Phone size={19} /> +880 1521 704 643
             </a>
           </div>
