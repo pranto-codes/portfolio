@@ -34,3 +34,6 @@ npm run build
 - LinkedIn and GitHub links
 - CV download
 - Vercel-ready Vite setup
+
+- Live demo link : https://portfolio-roan-sigma-70.vercel.app/
+- Video Link : https://github.com/user-attachments/assets/74bbb45e-a1d7-4342-a753-d3b81babb373
