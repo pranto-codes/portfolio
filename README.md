@@ -33,10 +33,6 @@ npm run build
 - About, skills, projects, education, publication and contact sections
 - LinkedIn and GitHub links
 - CV download
-
-Video : https://github.com/user-attachments/assets/74bbb45e-a1d7-4342-a753-d3b81babb373
-Live site link : https://portfolio-roan-sigma-70.vercel.app/
-
 - Vercel-ready Vite setup
 
 - Live demo link : https://portfolio-roan-sigma-70.vercel.app/
