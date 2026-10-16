@@ -9,11 +9,9 @@ import {
   ExternalLink,
   Download,
   Code2,
-  PenLine,
-  BarChart3,
-  DatabaseZap,
-  FileCode,
-  ScanFace,
+  Palette,
+  Wrench,
+  Globe,
 } from "lucide-react";
 import "./styles.css";
 import profilePic from "./../public/8d0aec01-5351-415f-bf90-b2c47956f254.png";
@@ -25,33 +23,85 @@ const projects = [
   {
     title: "Dragon News",
     description:
-      "A responsive news platform focused on clean layouts, category-based content, and a smooth reading experience.Dragon News is a news platform I built to practice creating a clean and structured reading experience. I wanted the interface to feel simple and easy to navigate, especially when users are moving between different categories of news.While building it, I focused on responsive layouts, organizing content clearly, and making the overall experience feel smooth across different screen sizes. It helped me understand that building a good frontend isn't only about making something look attractive — it's also about thinking about how someone will actually use it. ",
+      "A responsive news platform focused on clean layouts, category-based content, and a smooth reading experience. Building it helped me understand how to organize content and create an interface that feels natural to navigate.",
+    image: "/Screenshot 2026-10-08 150640.png",
     tags: ["React", "JavaScript", "Responsive UI"],
     link: "https://dragonewspranto.netlify.app",
   },
   {
     title: "Pranto Mess Blog",
     description:
-      "A blog-style web project designed to present content in a simple, readable, user-friendly interface.Pranto Mess Blog is a simple blog-style web project where I focused on presenting written content in a clean and readable way. Rather than filling the interface with unnecessary elements, I wanted the content itself to remain the main focus.Building it gave me a chance to work more on spacing, typography, layout, and the small details that make a website comfortable to read. It also connected naturally with my interest in writing, because I could think about the experience from both sides — as someone creating content and as someone reading it.",
+      "A blog-style web project designed to present content through a simple, readable, and user-friendly interface. It helped me practice component-based development and responsive layouts.",
+    image: "/public/Screenshot 2026-10-16 092337.png",
     tags: ["React", "CSS", "Web Design"],
     link: "https://prantomess-blog.netlify.app/",
   },
+
+  {
+    title: "zapShift",
+    description:
+      "A full-stack parcel delivery platform that connects customers, riders, merchants, and administrators. Building zapShift helped me gain practical experience with authentication, role-based access, parcel tracking, Stripe payments, REST APIs, and database management.",
+    image: "/public/Screenshot 2026-10-08 145527.png",
+    tags: ["React", "Express.js", "MongoDB", "Firebase", "Stripe"],
+    link: "https://zap-shift-client-qvhl.vercel.app/",
+  },
+
   {
     title: "Frame Flow",
     description:
-      "A responsive and interactive gallery featuring dynamic categories, search, lightbox navigation, smooth animations, and a polished UI. ",
-    tags: ["React", "CSS", "Vite", " JavaScript", "Web Design"],
+      "A modern gallery experience designed to present visual content in an organized and engaging way, with a focus on layout, usability, and responsive design.",
+    image: "/public/Screenshot 2026-10-16 094344.png",
+    tags: ["React", "JavaScript", "UI Design"],
     link: "https://frame-flow-premium-gallery-ix6y.vercel.app/",
   },
   {
     title: "CalcSpace",
-
     description:
-      "A modern and responsive calculator featuring basic arithmetic operations, real-time calculations, keyboard support, calculation history, smooth interactions, and a polished UI.",
-
-    tags: ["React", "CSS", "Vite", "JavaScript", "Web Design"],
-
+      "A practical calculator application built to make calculations simple and accessible. This project gave me more practice with JavaScript logic and interactive user interfaces.",
+    image: "/public/Screenshot 2026-10-16 094322.png",
+    tags: ["JavaScript", "React", "Interactive UI"],
     link: "https://calcspace-calculator.vercel.app/",
+  },
+];
+
+const skillGroups = [
+  {
+    title: "Frontend Development",
+    description:
+      "I build responsive, accessible, and user-friendly interfaces with a focus on clean design and smooth interactions.",
+    icon: Code2,
+    skills: [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "React",
+      "Tailwind CSS",
+      "Bootstrap",
+      "Responsive Design",
+      "React Router",
+    ],
+  },
+  {
+    title: "Backend & Data",
+    description:
+      "I am expanding my full-stack skills by learning how APIs, databases, authentication, and server-side logic work together.",
+    icon: Globe,
+    skills: [
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Firebase",
+      "REST APIs",
+      "JSON",
+      "Stripe",
+    ],
+  },
+  {
+    title: "Tools & Workflow",
+    description:
+      "I use modern development tools to write code, manage projects, debug issues, and deploy web applications.",
+    icon: Wrench,
+    skills: ["Git", "GitHub", "VS Code", "Vercel", "Netlify", "Postman", "npm"],
   },
 ];
 
@@ -59,20 +109,18 @@ function App() {
   return (
     <div className="site">
       <header className="navbar">
-        {/**
-       *   <a className="logo" href="#home">
+        <a className="logo" href="#home">
           SR<span>.</span>
         </a>
-       */}
-        {/**   <img src={profilePic} alt="" /> */}
 
-        <nav>
+        <nav className="">
           <a href="#about">About</a>
           <a href="#skills">Skills</a>
           <a href="#projects">Projects</a>
           <a href="#education">Education</a>
           <a href="#contact">Contact</a>
         </nav>
+
         <a className="nav-btn" href={linkedin} target="_blank" rel="noreferrer">
           LinkedIn <ArrowUpRight size={16} />
         </a>
@@ -81,29 +129,40 @@ function App() {
       <main>
         <section id="home" className="hero section">
           <div className="hero-copy">
-            <p className="eyebrow">ECONOMICS × TECHNOLOGY × WRITING</p>
-            <h1>
-              Hi, I'm <span>Shakibur Rahman </span>
-            </h1>
-            <h2>Full-Stack Web Developer & Economics Student.</h2>
-            <p className="hero-text">
-              I build responsive, user-friendly web experiences while studying
-              Economics at Islamic University, Kushtia. I also write about
-              economics and ideas that matter.
+            <p className="eyebrow">
+              FRONTEND DEVELOPMENT × ECONOMICS × CREATIVITY
             </p>
+
+            <h1>
+              Hi, I'm <span>Shakibur Rahman Pranto.</span>
+            </h1>
+
+            <h2>Frontend Developer & Economics Student.</h2>
+
+            <p className="hero-text">
+              I'm a motivated frontend developer passionate about building
+              responsive, visually appealing, and user-friendly websites. I
+              enjoy turning ideas into real digital experiences, learning new
+              technologies, and solving problems through code. Alongside
+              development, my Economics background helps me approach challenges
+              with analytical thinking and curiosity.
+            </p>
+
             <div className="actions">
               <a className="primary-btn" href="#projects">
-                View My Work <ArrowUpRight size={18} />
+                Explore My Projects <ArrowUpRight size={18} />
               </a>
+
               <a
                 className="secondary-btn"
                 href={linkedin}
                 target="_blank"
                 rel="noreferrer"
               >
-                <Linkedin size={18} /> LinkedIn
+                <Linkedin size={18} /> Connect With Me
               </a>
             </div>
+
             <div className="socials">
               <a href={github} target="_blank" rel="noreferrer">
                 <Github size={19} /> GitHub
@@ -116,22 +175,14 @@ function App() {
 
           <div className="hero-card">
             <div className="card-glow"></div>
+
             <div className="initials">
-              <img
-                src={profilePic}
-                alt="Shakibur Rahman"
-                style={{
-                  width: "350px",
-                  height: "440px",
-                  objectFit: "",
-                  borderRadius: "10%",
-                  padding: "10px",
-                }}
-              />
+              <img src={profilePic} alt="Shakibur Rahman Pranto" />
             </div>
+
             <div className="hero-card-bottom">
               <span>Based in Bangladesh</span>
-              <span>Available for opportunities</span>
+              <span>Open to opportunities</span>
             </div>
           </div>
         </section>
@@ -139,125 +190,96 @@ function App() {
         <section id="about" className="section">
           <div className="section-heading">
             <p className="eyebrow">01 — ABOUT</p>
-            <h2>A developer with an analytical mindset.</h2>
-          </div>
-          <div className="about-grid">
-            <p>
-              I'm a final-year Economics student at Islamic University, Kushtia
-              with a CGPA of 3.45 and 2+ years of front-end web development
-              experience.
-            </p>
-            <p>
-              My work combines technical problem-solving with analytical
-              thinking, academic research, and writing. I enjoy turning ideas
-              into clean, responsive interfaces that people can actually use.
-            </p>
-          </div>
-        </section>
-
-        <section id="perspective" className="section">
-          <div className="section-heading">
-            <p className="eyebrow">02 — VISION</p>
-            <h2>From Economics to Code</h2>
+            <h2>A developer who loves learning by building.</h2>
           </div>
 
           <div className="about-grid">
             <p>
-              I didn't start learning to code because I wanted to leave
-              Economics behind. In many ways, Economics is actually what made me
-              interested in building things.
+              I'm an Economics student at Islamic University, Kushtia, with a
+              strong interest in frontend web development. I enjoy creating
+              websites that look good, work smoothly, and provide a positive
+              experience across different screen sizes.
             </p>
 
             <p>
-              Studying Economics taught me to look at a problem, understand what
-              is causing it, think about the choices available, and find a
-              practical solution. Over time, I realized that I could approach
-              software in much the same way.
-            </p>
-
-            <p>
-              When I build something, I don't just think about how it should
-              look. I think about the problem it is trying to solve, how people
-              will use it, and how the different parts should work together.
-            </p>
-
-            <p>
-              That's what I enjoy about development. Economics taught me how to
-              <strong> think through problems</strong>; programming gives me the
-              tools to{" "}
-              <strong> turn those solutions into something real</strong>.
+              Through hands-on projects, I'm developing my skills in JavaScript,
+              React, responsive design, and modern web technologies. I believe
+              consistent practice, curiosity, and learning from mistakes are
+              essential to becoming a better developer.
             </p>
           </div>
         </section>
 
-        <section id="skills" className="section">
-          <div className="section-heading">
-            <p className="eyebrow">03 — SKILLS</p>
-            <h2>What I work with.</h2>
+        <section id="skills" className="section skills-section">
+          <div className="section-heading skills-heading">
+            <p className="eyebrow">02 — SKILLS</p>
+            <h2>Skills & Technologies</h2>
+            <p className="skills-intro">
+              Here are the technologies and tools I have been learning and
+              working with to build responsive, user-friendly web applications.
+            </p>
           </div>
+
           <div className="skill-grid">
-            <div className="skill-card">
-              <Code2 size={28} />
-              <h3>Front-End Development</h3>
-              <p>HTML, CSS, JavaScript, React, Responsive web design.</p>
-            </div>
-            <div className="skill-card">
-              <BarChart3 size={28} />
-              <h3>Economics & Research</h3>
-              <p>
-                Economic analysis, analytical thinking, and academic research.
+            {skillGroups.map((group) => {
+              const Icon = group.icon;
+
+              return (
+                <article className="skill-card" key={group.title}>
+                  <div className="skill-card-heading">
+                    <div className="skill-icon">
+                      <Icon size={23} />
+                    </div>
+                    <h3>{group.title}</h3>
+                  </div>
+
+                  <p className="skill-description">{group.description}</p>
+
+                  <div className="tech-list">
+                    {group.skills.map((skill) => (
+                      <span key={skill}>{skill}</span>
+                    ))}
+                  </div>
+                </article>
+              );
+            })}
+
+            <article className="skill-card">
+              <div className="skill-card-heading">
+                <div className="skill-icon">
+                  <Palette size={23} />
+                </div>
+                <h3>Other Strengths</h3>
+              </div>
+
+              <p className="skill-description">
+                Beyond coding, I value clear communication, analytical thinking,
+                and the ability to learn from challenges.
               </p>
-            </div>
-            <div className="skill-card">
-              <PenLine size={28} />
-              <h3>Writing</h3>
-              <p>Technical writing, academic writing, and content writing.</p>
-            </div>
-            <div className="skill-card">
-              <FileCode size={28} />
-              <h3>Back-End Development</h3>
-              <p>Node.js ,Express.js</p>
-            </div>
-            <div className="skill-card">
-              <ScanFace size={28} />
-              <h3>Authentication / Services</h3>
-              <p>Firebase Authentication , Stripe.</p>
-            </div>
-            <div className="skill-card">
-              <DatabaseZap size={28} />
-              <h3>Database</h3>
-              <p>MongoDB</p>
-            </div>
-            <div className="skill-card">
-              <Github size={28} />
-              <h3>Development Workflow</h3>
-              <p>
-                Git and GitHub and Vite for version control and project
-                management.
-              </p>
-            </div>
-          </div>
-          <div className="tech-list">
-            {[
-              "HTML",
-              "CSS",
-              "JavaScript",
-              "React",
-              "Responsive Design",
-              "Git",
-              "GitHub",
-            ].map((x) => (
-              <span key={x}>{x}</span>
-            ))}
+
+              <div className="tech-list">
+                {[
+                  "Problem Solving",
+                  "Analytical Thinking",
+                  "Research",
+                  "Writing",
+                  "Teamwork",
+                  "Continuous Learning",
+                ].map((skill) => (
+                  <span key={skill}>{skill}</span>
+                ))}
+              </div>
+            </article>
           </div>
         </section>
 
         <section id="projects" className="section">
           <div className="section-heading row">
             <div>
-              <p className="eyebrow">04 — PROJECTS</p>
-              <h2>Selected work.</h2>
+              <p className="eyebrow">03 — PROJECTS</p>
+              <h2>Things I've been building.</h2>
             </div>
+
             <a
               className="text-link"
               href={github}
@@ -267,25 +289,45 @@ function App() {
               View GitHub <ArrowUpRight size={17} />
             </a>
           </div>
+
           <div className="project-grid">
             {projects.map((project, i) => (
               <article className="project-card" key={project.title}>
-                <div className="project-number">0{i + 1}</div>
-                <div>
+                <a
+                  className="project-image"
+                  href={project.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`Visit ${project.title}`}
+                >
+                  <img
+                    src={project.image}
+                    alt={`${project.title} website preview`}
+                    loading="lazy"
+                  />
+                </a>
+
+                <div className="project-number">
+                  {String(i + 1).padStart(2, "0")}
+                </div>
+
+                <div className="project-content">
                   <h3>{project.title}</h3>
                   <p>{project.description}</p>
+
                   <div className="tags">
                     {project.tags.map((tag) => (
                       <span key={tag}>{tag}</span>
                     ))}
                   </div>
+
                   <a
                     href={project.link}
                     target="_blank"
                     rel="noreferrer"
                     className="project-link"
                   >
-                    Visit project <ExternalLink size={16} />
+                    View Project <ExternalLink size={16} />
                   </a>
                 </div>
               </article>
@@ -295,17 +337,19 @@ function App() {
 
         <section id="education" className="section">
           <div className="section-heading">
-            <p className="eyebrow">05 — EDUCATION</p>
-            <h2>Academic background.</h2>
+            <p className="eyebrow">04 — EDUCATION</p>
+            <h2>My academic journey.</h2>
           </div>
+
           <div className="timeline">
             <div className="timeline-item">
               <span>2022 — Present</span>
               <div>
                 <h3>Islamic University, Kushtia</h3>
-                <p>Bachelor of Economics · Final Year · CGPA 3.45</p>
+                <p>Bachelor of Economics · CGPA 3.45</p>
               </div>
             </div>
+
             <div className="timeline-item">
               <span>2022</span>
               <div>
@@ -316,10 +360,11 @@ function App() {
                 </p>
               </div>
             </div>
+
             <div className="timeline-item">
               <span>2020</span>
               <div>
-                <h3>BAF Shaheen School & College, Jashore</h3>
+                <h3>BAF Shaheen School, Jashore</h3>
                 <p>Secondary School Certificate · Science Group · GPA 5.00</p>
               </div>
             </div>
@@ -332,34 +377,36 @@ function App() {
             <h2>Trade on Edge: 90 Days to Reshape Economy</h2>
             <p>Published writer in Dhaka Opinion Magazine.</p>
           </div>
+
           <a
             className="primary-btn"
             href="https://dhakaopinionmagazine.com/2025/04/13/trade-on-edge-90-days-to-reshape-economy/"
             target="_blank"
             rel="noreferrer"
           >
-            Read article <ArrowUpRight size={18} />
+            Read Article <ArrowUpRight size={18} />
           </a>
         </section>
 
         <section id="contact" className="contact section">
           <p className="eyebrow">05 — CONTACT</p>
           <h2>Let's build something useful.</h2>
+
           <p>
-            I'm open to opportunities where I can combine web development,
-            analytical thinking, and communication.
+            I'm always interested in learning, collaborating, and exploring
+            opportunities to grow as a frontend developer.
           </p>
+
           <div className="contact-links">
             <a href="mailto:prantome98@gmail.com">
-              <Mail size={19} /> shakiburrahmanpranto@gmail.com
+              <Mail size={19} /> prantome98@gmail.com
             </a>
+
             <a href="tel:+8801784503769">
               <Phone size={19} /> +880 1784 503 769
             </a>
-            <a href="tel:+8801521704643">
-              <Phone size={19} /> +880 1521 704 643
-            </a>
           </div>
+
           <div className="actions">
             <a
               className="primary-btn"
@@ -369,6 +416,7 @@ function App() {
             >
               Connect on LinkedIn <ArrowUpRight size={18} />
             </a>
+
             <a className="secondary-btn" href="/cv.pdf" download>
               <Download size={18} /> Download CV
             </a>
@@ -378,6 +426,7 @@ function App() {
 
       <footer>
         <span>© {new Date().getFullYear()} Shakibur Rahman</span>
+
         <div>
           <a href={github} target="_blank" rel="noreferrer">
             GitHub
