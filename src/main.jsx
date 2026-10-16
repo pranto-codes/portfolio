@@ -32,7 +32,7 @@ const projects = [
     title: "Pranto Mess Blog",
     description:
       "A blog-style web project designed to present content through a simple, readable, and user-friendly interface. It helped me practice component-based development and responsive layouts.",
-    image: "/public/Screenshot 2026-10-16 092337.png",
+    image: "/Screenshot 2026-10-16 092337.png",
     tags: ["React", "CSS", "Web Design"],
     link: "https://prantomess-blog.netlify.app/",
   },
@@ -41,7 +41,7 @@ const projects = [
     title: "zapShift",
     description:
       "A full-stack parcel delivery platform that connects customers, riders, merchants, and administrators. Building zapShift helped me gain practical experience with authentication, role-based access, parcel tracking, Stripe payments, REST APIs, and database management.",
-    image: "/public/Screenshot 2026-10-08 145527.png",
+    image: "/Screenshot 2026-10-08 145527.png",
     tags: ["React", "Express.js", "MongoDB", "Firebase", "Stripe"],
     link: "https://zap-shift-client-qvhl.vercel.app/",
   },
@@ -50,7 +50,7 @@ const projects = [
     title: "Frame Flow",
     description:
       "A modern gallery experience designed to present visual content in an organized and engaging way, with a focus on layout, usability, and responsive design.",
-    image: "/public/Screenshot 2026-10-16 094344.png",
+    image: "/Screenshot 2026-10-16 094344.png",
     tags: ["React", "JavaScript", "UI Design"],
     link: "https://frame-flow-premium-gallery-ix6y.vercel.app/",
   },
@@ -58,7 +58,7 @@ const projects = [
     title: "CalcSpace",
     description:
       "A practical calculator application built to make calculations simple and accessible. This project gave me more practice with JavaScript logic and interactive user interfaces.",
-    image: "/public/Screenshot 2026-10-16 094322.png",
+    image: "/Screenshot 2026-10-16 094322.png",
     tags: ["JavaScript", "React", "Interactive UI"],
     link: "https://calcspace-calculator.vercel.app/",
   },
