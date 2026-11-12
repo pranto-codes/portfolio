@@ -23,6 +23,8 @@ import {
   Globe,
   MoveUpRight,
   Sparkles,
+  Menu,
+  X,
 } from "lucide-react";
 import "./styles.css";
 import profilePic from "./../public/8d0aec01-5351-415f-bf90-b2c47956f254.png";
@@ -86,6 +88,57 @@ const projects = [
     ],
     category: "Full Stack",
     link: "https://hireloop-client-l3by.vercel.app/",
+  },
+  {
+    title: "G3 Architect",
+    description:
+      "A modern and fully responsive architecture website designed to showcase architectural services, team expertise, and project achievements through a clean and professional interface. The application features an engaging hero section, team introduction, service highlights, key business statistics, and sponsor showcase. Built with React and Vite, the project demonstrates component-based development, reusable UI components, responsive layouts, modern CSS styling, and effective content organization. It reflects practical frontend development skills with an emphasis on visual consistency, accessibility, intuitive navigation, and seamless user experience across desktop, tablet, and mobile devices.",
+    image: "/architecture.png",
+    tags: [
+      "React",
+      "Vite",
+      "JavaScript",
+      "HTML5",
+      "CSS3",
+      "Responsive Design",
+      "Mobile-First Design",
+      "Component-Based Architecture",
+      "Reusable Components",
+      "Modern UI Design",
+      "UI/UX Design",
+      "Interactive Navigation",
+      "Frontend Development",
+      "Lucide React",
+      "Vercel Deployment",
+    ],
+    category: "React",
+    link: "https://architecture-file.vercel.app/",
+  },
+  {
+    title: "Subscription & Pricing Website",
+    description:
+      "A modern and fully responsive subscription pricing website designed to present different membership plans through a clean, intuitive, and user-friendly interface. The application features pricing cards, plan comparisons, subscription options, and a polished layout that helps users easily explore and evaluate available plans. Built with React, Vite, and Tailwind CSS, the project demonstrates component-based development, reusable UI elements, responsive layouts, modern styling techniques, and effective content organization. It reflects practical frontend development skills with an emphasis on visual hierarchy, clear pricing presentation, accessibility, and seamless user experience across desktop, tablet, and mobile devices.",
+    image: "/pricing.png",
+    tags: [
+      "React",
+      "Vite",
+      "JavaScript",
+      "Tailwind CSS",
+      "HTML5",
+      "CSS3",
+      "Responsive Design",
+      "Mobile-First Design",
+      "Component-Based Architecture",
+      "Reusable Components",
+      "Pricing Cards",
+      "Plan Comparison",
+      "Modern UI Design",
+      "UI/UX Design",
+      "Frontend Development",
+      "Vercel Deployment",
+    ],
+    category: "React",
+    link: "https://tailwind-react-pricing-options-pi.vercel.app/",
   },
   {
     title: "Book Poka",
@@ -396,22 +449,15 @@ const education = [
 const ease = [0.22, 1, 0.36, 1];
 
 const reveal = {
-  hidden: { opacity: 0, y: 35 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.7, ease },
-  },
+  hidden: { opacity: 0, y: 28 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.65, ease } },
 };
 
 const stagger = {
   hidden: {},
-  visible: {
-    transition: { staggerChildren: 0.11 },
-  },
+  visible: { transition: { staggerChildren: 0.1 } },
 };
 
-// Reusable scroll reveal component
 function Reveal({ children, className = "", delay = 0 }) {
   const reduceMotion = useReducedMotion();
 
@@ -421,7 +467,7 @@ function Reveal({ children, className = "", delay = 0 }) {
       initial={reduceMotion ? false : "hidden"}
       whileInView={reduceMotion ? undefined : "visible"}
       variants={reveal}
-      viewport={{ once: true, amount: 0.15 }}
+      viewport={{ once: true, amount: 0.12 }}
       transition={{ delay }}
     >
       {children}
@@ -429,7 +475,6 @@ function Reveal({ children, className = "", delay = 0 }) {
   );
 }
 
-// Animated heading with a small accent
 function SectionHeading({ number, eyebrow, title, description }) {
   return (
     <Reveal className="section-heading">
@@ -443,7 +488,6 @@ function SectionHeading({ number, eyebrow, title, description }) {
   );
 }
 
-// Scroll-linked progress bar
 function ScrollProgress() {
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
@@ -455,78 +499,6 @@ function ScrollProgress() {
   return <motion.div className="scroll-progress" style={{ scaleX }} />;
 }
 
-// Interactive card with spring-based 3D tilt
-function SpotlightCard({ children, className = "" }) {
-  const reduceMotion = useReducedMotion();
-  const rotateX = useMotionValue(0);
-  const rotateY = useMotionValue(0);
-
-  const springX = useSpring(rotateX, {
-    stiffness: 180,
-    damping: 18,
-  });
-
-  const springY = useSpring(rotateY, {
-    stiffness: 180,
-    damping: 18,
-  });
-
-  function handleMove(event) {
-    if (reduceMotion) return;
-
-    const bounds = event.currentTarget.getBoundingClientRect();
-    const x = (event.clientX - bounds.left) / bounds.width;
-    const y = (event.clientY - bounds.top) / bounds.height;
-
-    rotateX((0.5 - y) * 7);
-    rotateY((x - 0.5) * 7);
-  }
-
-  function resetTilt() {
-    rotateX(0);
-    rotateY(0);
-  }
-
-  return (
-    <motion.div
-      className={`spotlight-card ${className}`}
-      style={
-        reduceMotion
-          ? {}
-          : {
-              rotateX: springX,
-              rotateY: springY,
-              transformPerspective: 1000,
-            }
-      }
-      onMouseMove={handleMove}
-      onMouseLeave={resetTilt}
-      whileHover={reduceMotion ? undefined : { y: -5 }}
-      transition={{ duration: 0.25 }}
-    >
-      {children}
-    </motion.div>
-  );
-}
-
-// Hero text reveals one line after another
-function HeroText({ children, delay = 0 }) {
-  const reduceMotion = useReducedMotion();
-
-  return (
-    <motion.div
-      initial={
-        reduceMotion ? false : { opacity: 0, y: 24, filter: "blur(5px)" }
-      }
-      animate={reduceMotion ? {} : { opacity: 1, y: 0, filter: "blur(0px)" }}
-      transition={{ duration: 0.75, delay, ease }}
-    >
-      {children}
-    </motion.div>
-  );
-}
-
-// Reusable animated technology ticker
 function TechTicker() {
   const items = [
     "React",
@@ -538,7 +510,6 @@ function TechTicker() {
     "Tailwind CSS",
     "Firebase",
   ];
-
   const reduceMotion = useReducedMotion();
 
   return (
@@ -546,11 +517,7 @@ function TechTicker() {
       <motion.div
         className="ticker-track"
         animate={reduceMotion ? {} : { x: ["0%", "-50%"] }}
-        transition={{
-          duration: 28,
-          repeat: Infinity,
-          ease: "linear",
-        }}
+        transition={{ duration: 28, repeat: Infinity, ease: "linear" }}
       >
         {[...items, ...items].map((item, index) => (
           <span className="ticker-item" key={`${item}-${index}`}>
@@ -563,11 +530,9 @@ function TechTicker() {
   );
 }
 
-// Projects with animated filtering and image interaction
 function ProjectsSection() {
   const [filter, setFilter] = useState("All");
   const reduceMotion = useReducedMotion();
-
   const filters = ["All", "React", "Full Stack", "UI Design"];
 
   const filteredProjects =
@@ -584,16 +549,17 @@ function ProjectsSection() {
           title="Things I've been building."
           description="A collection of projects where I've been learning, experimenting, and turning ideas into working experiences."
         />
-
-        <motion.a
-          className="text-link"
-          href={github}
-          target="_blank"
-          rel="noreferrer"
-          whileHover={reduceMotion ? undefined : { x: 4 }}
-        >
+        <a className="text-link" href={github} target="_blank" rel="noreferrer">
           All repositories <ArrowUpRight size={17} />
-        </motion.a>
+        </a>
+      </div>
+
+      <div className="project-total" aria-live="polite">
+        <strong>{String(projects.length).padStart(2, "0")}</strong>
+        <span>
+          <b>Projects showcased</b>
+          <small>Personal projects and practical experiments</small>
+        </span>
       </div>
 
       <div
@@ -607,15 +573,9 @@ function ProjectsSection() {
             type="button"
             className={`filter-btn ${filter === item ? "active" : ""}`}
             onClick={() => setFilter(item)}
+            aria-pressed={filter === item}
           >
             {item}
-            {filter === item && (
-              <motion.span
-                className="filter-indicator"
-                layoutId="filter-indicator"
-                transition={{ type: "spring", stiffness: 350, damping: 30 }}
-              />
-            )}
           </button>
         ))}
       </div>
@@ -627,69 +587,54 @@ function ProjectsSection() {
               layout
               key={project.title}
               className="project-card"
-              initial={
-                reduceMotion ? false : { opacity: 0, y: 25, scale: 0.97 }
-              }
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={
-                reduceMotion
-                  ? { opacity: 0 }
-                  : { opacity: 0, scale: 0.95, y: 12 }
-              }
-              transition={{
-                duration: 0.4,
-                delay: reduceMotion ? 0 : index * 0.04,
-                ease,
-                layout: { type: "spring", stiffness: 280, damping: 28 },
-              }}
+              initial={reduceMotion ? false : { opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 12 }}
+              transition={{ duration: 0.35, delay: index * 0.025, ease }}
             >
-              <SpotlightCard className="project-spotlight">
+              <a
+                className="project-image"
+                href={project.link}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`Visit ${project.title}`}
+              >
+                <img
+                  src={project.image}
+                  alt={`${project.title} website preview`}
+                  loading="lazy"
+                />
+                <span className="image-open">
+                  <ArrowUpRight size={19} />
+                </span>
+              </a>
+
+              <div className="project-content">
+                <div className="project-meta">
+                  <span className="project-number">
+                    {String(projects.indexOf(project) + 1).padStart(2, "0")}
+                  </span>
+                  <span className="project-category">{project.category}</span>
+                </div>
+
+                <h3>{project.title}</h3>
+                <p>{project.description}</p>
+
+                <div className="tags">
+                  {project.tags.map((tag) => (
+                    <span key={tag}>{tag}</span>
+                  ))}
+                </div>
+
                 <a
-                  className="project-image"
                   href={project.link}
                   target="_blank"
                   rel="noreferrer"
-                  aria-label={`Visit ${project.title}`}
+                  className="project-link"
                 >
-                  <motion.img
-                    src={project.image}
-                    alt={`${project.title} website preview`}
-                    loading="lazy"
-                    whileHover={reduceMotion ? undefined : { scale: 1.07 }}
-                    transition={{ duration: 0.55, ease }}
-                  />
-                  <span className="image-open">
-                    <ArrowUpRight size={19} />
-                  </span>
+                  Explore project <MoveUpRight size={16} />
                 </a>
-
-                <div className="project-content">
-                  <div className="project-meta">
-                    <span className="project-number">
-                      {String(projects.indexOf(project) + 1).padStart(2, "0")}
-                    </span>
-                    <span className="project-category">{project.category}</span>
-                  </div>
-
-                  <h3>{project.title}</h3>
-                  <p>{project.description}</p>
-
-                  <div className="tags">
-                    {project.tags.map((tag) => (
-                      <span key={tag}>{tag}</span>
-                    ))}
-                  </div>
-
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="project-link"
-                  >
-                    Explore project <MoveUpRight size={16} />
-                  </a>
-                </div>
-              </SpotlightCard>
+              </div>
             </motion.article>
           ))}
         </AnimatePresence>
@@ -700,186 +645,152 @@ function ProjectsSection() {
 
 function App() {
   const reduceMotion = useReducedMotion();
-  const heroRef = useRef(null);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const navItems = ["About", "Skills", "Projects", "Education", "Contact"];
 
-  const { scrollYProgress: heroProgress } = useScroll({
-    target: heroRef,
-    offset: ["start start", "end start"],
-  });
-
-  const portraitY = useTransform(heroProgress, [0, 1], [0, 90]);
-  const portraitScale = useTransform(heroProgress, [0, 1], [1, 1.12]);
-  const heroOpacity = useTransform(heroProgress, [0, 0.85], [1, 0.35]);
+  const closeMenu = () => setMenuOpen(false);
 
   return (
     <div className="site">
       <ScrollProgress />
 
       <header className="navbar">
-        <a className="logo" href="#home" aria-label="Back to home">
+        <a
+          className="logo"
+          href="#home"
+          onClick={closeMenu}
+          aria-label="Back to home"
+        >
           SR<span>.</span>
         </a>
 
-        <nav>
-          {["About", "Skills", "Projects", "Education", "Contact"].map(
-            (item, index) => (
-              <motion.a
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                initial={reduceMotion ? false : { opacity: 0, y: -8 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.07, duration: 0.4 }}
-                whileHover={reduceMotion ? undefined : { y: -2 }}
-              >
-                {item}
-              </motion.a>
-            ),
-          )}
+        <button
+          className="menu-toggle"
+          type="button"
+          aria-label={
+            menuOpen ? "Close navigation menu" : "Open navigation menu"
+          }
+          aria-expanded={menuOpen}
+          aria-controls="primary-navigation"
+          onClick={() => setMenuOpen((open) => !open)}
+        >
+          {menuOpen ? <X size={23} /> : <Menu size={23} />}
+        </button>
+
+        <nav
+          id="primary-navigation"
+          className={`nav-links ${menuOpen ? "nav-links-open" : ""}`}
+        >
+          {navItems.map((item) => (
+            <a key={item} href={`#${item.toLowerCase()}`} onClick={closeMenu}>
+              {item}
+            </a>
+          ))}
         </nav>
 
-        <motion.a
-          className="nav-btn"
-          href={linkedin}
-          target="_blank"
-          rel="noreferrer"
-          whileHover={reduceMotion ? undefined : { y: -3 }}
-          whileTap={reduceMotion ? undefined : { scale: 0.97 }}
-        >
+        <a className="nav-btn" href={linkedin} target="_blank" rel="noreferrer">
           Let's connect <ArrowUpRight size={16} />
-        </motion.a>
+        </a>
       </header>
 
       <main>
-        {/* HERO */}
-        <section id="home" className="hero section" ref={heroRef}>
-          <motion.div className="hero-copy" style={{ opacity: heroOpacity }}>
-            <HeroText delay={0.1}>
-              <p className="eyebrow">
-                <span className="availability-dot" />
-                FRONTEND DEVELOPMENT · ECONOMICS · CREATIVITY
-              </p>
-            </HeroText>
+        <section id="home" className="hero section">
+          <div className="hero-copy">
+            <motion.p
+              className="eyebrow"
+              initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+            >
+              <span className="availability-dot" />
+              FRONTEND DEVELOPMENT · ECONOMICS · CREATIVITY
+            </motion.p>
 
-            <HeroText delay={0.2}>
-              <h1>
-                Turning ideas into <span>digital experiences.</span>
-              </h1>
-            </HeroText>
+            <motion.h1
+              initial={reduceMotion ? false : { opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.7, ease }}
+            >
+              Turning ideas into <span>digital experiences.</span>
+            </motion.h1>
 
-            <HeroText delay={0.32}>
-              <h2>I'm Shakibur Rahman Pranto.</h2>
-            </HeroText>
+            <motion.h2
+              initial={reduceMotion ? false : { opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+            >
+              I'm Shakibur Rahman Pranto.
+            </motion.h2>
 
-            <HeroText delay={0.43}>
-              <p className="hero-text">
-                A frontend developer and Economics student who enjoys building
-                responsive, thoughtful, and user-friendly websites. I combine
-                analytical thinking with creative problem-solving to turn ideas
-                into useful digital experiences.
-              </p>
-            </HeroText>
+            <motion.p
+              className="hero-text"
+              initial={reduceMotion ? false : { opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+            >
+              A frontend developer and Economics student who enjoys building
+              responsive, thoughtful, and user-friendly websites. I combine
+              analytical thinking with creative problem-solving to turn ideas
+              into useful digital experiences.
+            </motion.p>
 
-            <HeroText delay={0.54}>
-              <div className="actions">
-                <motion.a
-                  className="primary-btn"
-                  href="#projects"
-                  whileHover={reduceMotion ? undefined : { y: -4, scale: 1.02 }}
-                  whileTap={reduceMotion ? undefined : { scale: 0.97 }}
-                >
-                  Explore my work <ArrowUpRight size={18} />
-                </motion.a>
+            <div className="actions">
+              <a className="primary-btn" href="#projects">
+                Explore my work <ArrowUpRight size={18} />
+              </a>
+              <a
+                className="secondary-btn"
+                href={linkedin}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Linkedin size={18} /> Let's connect
+              </a>
+            </div>
 
-                <motion.a
-                  className="secondary-btn"
-                  href={linkedin}
-                  target="_blank"
-                  rel="noreferrer"
-                  whileHover={reduceMotion ? undefined : { y: -4 }}
-                >
-                  <Linkedin size={18} /> Let's connect
-                </motion.a>
-              </div>
-            </HeroText>
-
-            <HeroText delay={0.65}>
-              <div className="socials">
-                <a href={github} target="_blank" rel="noreferrer">
-                  <Github size={18} /> GitHub
-                </a>
-                <a href="mailto:prantome98@gmail.com">
-                  <Mail size={18} /> Email
-                </a>
-              </div>
-            </HeroText>
-          </motion.div>
+            <div className="socials">
+              <a href={github} target="_blank" rel="noreferrer">
+                <Github size={18} /> GitHub
+              </a>
+              <a href="mailto:prantome98@gmail.com">
+                <Mail size={18} /> Email
+              </a>
+            </div>
+          </div>
 
           <motion.div
             className="hero-visual"
-            initial={
-              reduceMotion ? false : { opacity: 0, scale: 0.88, rotate: 3 }
-            }
-            animate={{ opacity: 1, scale: 1, rotate: 0 }}
-            transition={{ duration: 1, delay: 0.2, ease }}
+            initial={reduceMotion ? false : { opacity: 0, scale: 0.94 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2, ease }}
           >
-            <motion.div
-              className="orbit orbit-one"
-              animate={reduceMotion ? {} : { rotate: 360 }}
-              transition={{ duration: 32, repeat: Infinity, ease: "linear" }}
-            />
-            <motion.div
-              className="orbit orbit-two"
-              animate={reduceMotion ? {} : { rotate: -360 }}
-              transition={{ duration: 24, repeat: Infinity, ease: "linear" }}
-            />
+            <div className="orbit orbit-one" />
+            <div className="orbit orbit-two" />
 
-            <motion.div
-              className="portrait-frame"
-              style={reduceMotion ? {} : { y: portraitY, scale: portraitScale }}
-            >
+            <div className="portrait-frame">
               <img src={profilePic} alt="Shakibur Rahman Pranto" />
-              <div className="portrait-shade" />
-            </motion.div>
+            </div>
 
-            <motion.div
-              className="floating-label label-top"
-              animate={reduceMotion ? {} : { y: [0, -8, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            >
-              <span className="label-icon">
-                <Code2 size={17} />
-              </span>
-              <span>Building for the web</span>
-            </motion.div>
-
-            <motion.div
-              className="floating-label label-bottom"
-              animate={reduceMotion ? {} : { y: [0, 7, 0] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-            >
+            <div className="floating-label label-top">
+              <Code2 size={17} /> Building for the web
+            </div>
+            <div className="floating-label label-bottom">
               <span className="availability-dot" />
               Open to opportunities
-            </motion.div>
-
+            </div>
             <div className="hero-caption">
               <span>BASED IN BANGLADESH</span>
               <span>01 / 05</span>
             </div>
           </motion.div>
 
-          <motion.a
-            className="scroll-cue"
-            href="#about"
-            animate={reduceMotion ? {} : { y: [0, 6, 0] }}
-            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-          >
+          <a className="scroll-cue" href="#about">
             <span /> Scroll to explore
-          </motion.a>
+          </a>
         </section>
 
         <TechTicker />
 
-        {/* ABOUT */}
         <section id="about" className="section about-section">
           <SectionHeading
             number="01"
@@ -887,7 +798,6 @@ function App() {
             title="Curious by nature. A builder by practice."
             description="I enjoy understanding how things work, then using that knowledge to create something useful."
           />
-
           <div className="about-grid">
             <Reveal>
               <div className="about-index">01 / THINK</div>
@@ -899,7 +809,6 @@ function App() {
                 problems, and approach challenges from different perspectives.
               </p>
             </Reveal>
-
             <Reveal delay={0.12}>
               <div className="about-index">02 / BUILD</div>
               <h3>Learning through real projects.</h3>
@@ -913,7 +822,6 @@ function App() {
           </div>
         </section>
 
-        {/* SKILLS */}
         <section id="skills" className="section skills-section">
           <SectionHeading
             number="02"
@@ -921,7 +829,6 @@ function App() {
             title="Skills that keep growing."
             description="Technologies and tools I've been exploring through practice and project development."
           />
-
           <motion.div
             className="skill-grid"
             variants={stagger}
@@ -931,42 +838,24 @@ function App() {
           >
             {skillGroups.map((group, index) => {
               const Icon = group.icon;
-
               return (
                 <motion.article
                   key={group.title}
                   className="skill-card"
                   variants={reveal}
-                  whileHover={reduceMotion ? undefined : { y: -8 }}
-                  transition={{ duration: 0.25 }}
+                  whileHover={reduceMotion ? undefined : { y: -5 }}
                 >
                   <div className="skill-card-heading">
-                    <motion.div
-                      className="skill-icon"
-                      whileHover={
-                        reduceMotion ? undefined : { rotate: -8, scale: 1.08 }
-                      }
-                    >
+                    <div className="skill-icon">
                       <Icon size={22} />
-                    </motion.div>
+                    </div>
                     <span className="skill-index">0{index + 1}</span>
                   </div>
-
                   <h3>{group.title}</h3>
                   <p className="skill-description">{group.description}</p>
-
                   <div className="tech-list">
-                    {group.skills.map((skill, i) => (
-                      <motion.span
-                        key={skill}
-                        initial={reduceMotion ? false : { opacity: 0, y: 7 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: i * 0.025, duration: 0.3 }}
-                        whileHover={reduceMotion ? undefined : { y: -3 }}
-                      >
-                        {skill}
-                      </motion.span>
+                    {group.skills.map((skill) => (
+                      <span key={skill}>{skill}</span>
                     ))}
                   </div>
                 </motion.article>
@@ -976,7 +865,7 @@ function App() {
             <motion.article
               className="skill-card strengths-card"
               variants={reveal}
-              whileHover={reduceMotion ? undefined : { y: -8 }}
+              whileHover={reduceMotion ? undefined : { y: -5 }}
             >
               <div className="skill-card-heading">
                 <div className="skill-icon">
@@ -1005,10 +894,8 @@ function App() {
           </motion.div>
         </section>
 
-        {/* PROJECTS */}
         <ProjectsSection />
 
-        {/* EDUCATION */}
         <section id="education" className="section education-section">
           <SectionHeading
             number="04"
@@ -1016,35 +903,22 @@ function App() {
             title="Learning is a long game."
             description="The academic milestones that have shaped my journey so far."
           />
-
           <div className="timeline">
-            <motion.div
-              className="timeline-line"
-              initial={{ scaleY: 0 }}
-              whileInView={{ scaleY: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1.2, ease }}
-            />
-
             {education.map((item, index) => (
-              <Reveal key={item.title} delay={index * 0.12}>
-                <motion.article
-                  className="timeline-item"
-                  whileHover={reduceMotion ? undefined : { x: 6 }}
-                >
+              <Reveal key={item.title} delay={index * 0.1}>
+                <article className="timeline-item">
                   <div className="timeline-dot" />
                   <div className="timeline-year">{item.year}</div>
                   <div className="timeline-content">
                     <h3>{item.title}</h3>
                     <p>{item.description}</p>
                   </div>
-                </motion.article>
+                </article>
               </Reveal>
             ))}
           </div>
         </section>
 
-        {/* PUBLICATION */}
         <Reveal>
           <section className="publication section">
             <div className="publication-mark">
@@ -1055,19 +929,17 @@ function App() {
               <h2>Trade on Edge: 90 Days to Reshape Economy</h2>
               <p>Published writer in Dhaka Opinion Magazine.</p>
             </div>
-            <motion.a
+            <a
               className="primary-btn"
               href="https://dhakaopinionmagazine.com/2025/04/13/trade-on-edge-90-days-to-reshape-economy/"
               target="_blank"
               rel="noreferrer"
-              whileHover={reduceMotion ? undefined : { y: -4 }}
             >
               Read article <ArrowUpRight size={18} />
-            </motion.a>
+            </a>
           </section>
         </Reveal>
 
-        {/* CONTACT */}
         <section id="contact" className="section contact-section">
           <Reveal>
             <p className="eyebrow">05 — LET'S CONNECT</p>
@@ -1098,24 +970,18 @@ function App() {
           </Reveal>
 
           <Reveal delay={0.2}>
-            <div className="actions">
-              <motion.a
+            <div className="actions contact-actions">
+              <a
                 className="primary-btn"
                 href={linkedin}
                 target="_blank"
                 rel="noreferrer"
-                whileHover={reduceMotion ? undefined : { y: -4 }}
               >
                 Connect on LinkedIn <ArrowUpRight size={18} />
-              </motion.a>
-              <motion.a
-                className="secondary-btn"
-                href="/cv.pdf"
-                download
-                whileHover={reduceMotion ? undefined : { y: -4 }}
-              >
+              </a>
+              <a className="secondary-btn" href="/cv.pdf" download>
                 <Download size={18} /> Download CV
-              </motion.a>
+              </a>
             </div>
           </Reveal>
         </section>
