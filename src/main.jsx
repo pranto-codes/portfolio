@@ -59,6 +59,33 @@ const projects = [
     link: "https://prantomess-blog.netlify.app/",
   },
   {
+    title: "PheroTube",
+    description:
+      "A responsive video discovery and search platform designed to provide an engaging video-browsing experience. The application integrates the YouTube Data API v3 to allow users to search for videos across different topics, explore categories, view video details, and watch content through an embedded video player. It features dynamic content rendering, interactive search functionality, video cards, category-based browsing, and responsive layouts. The project demonstrates practical experience in API integration, asynchronous JavaScript, DOM manipulation, event handling, and building interactive frontend applications.",
+    image: "/pherotube.png",
+    tags: [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "YouTube Data API v3",
+      "REST API Integration",
+      "Asynchronous JavaScript",
+      "Fetch API",
+      "Dynamic Content Rendering",
+      "DOM Manipulation",
+      "Event Handling",
+      "Video Search",
+      "Embedded Video Player",
+      "Responsive Design",
+      "Interactive UI",
+      "Frontend Development",
+      "Web Development",
+      "Vercel Deployment",
+    ],
+    category: "JavaScript",
+    link: "https://pheortube.vercel.app/",
+  },
+  {
     title: "HireLoop",
     description:
       "A modern job-seeking platform designed to connect job seekers with recruiters through an intuitive and user-friendly experience. The application features role-based dashboards, job posting and management, company profile management, recruiter authentication, and organized job discovery. Built with Next.js and MongoDB, the project demonstrates full-stack development, server-side rendering, authentication, REST API integration, database management, reusable components, and responsive UI design. It reflects practical skills in building scalable web applications with a focus on usability, maintainability, and efficient recruitment workflows.",
