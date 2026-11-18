@@ -1,12 +1,10 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { createRoot } from "react-dom/client";
 import {
   motion,
   AnimatePresence,
   useScroll,
   useSpring,
-  useTransform,
-  useMotionValue,
   useReducedMotion,
 } from "motion/react";
 import {
@@ -15,7 +13,6 @@ import {
   Mail,
   Phone,
   ArrowUpRight,
-  ExternalLink,
   Download,
   Code2,
   Palette,
@@ -27,7 +24,6 @@ import {
   X,
 } from "lucide-react";
 import "./styles.css";
-import profilePic from "./../public/8d0aec01-5351-415f-bf90-b2c47956f254.png";
 
 const linkedin = "https://www.linkedin.com/in/shakibur-rahman-620326336/";
 const github = "https://github.com/pranto-codes";
@@ -55,7 +51,7 @@ const projects = [
       "Cross-Browser Compatibility",
       "Netlify Deployment",
     ],
-    category: "React",
+    category: "React Apps",
     link: "https://prantomess-blog.netlify.app/",
   },
   {
@@ -73,7 +69,7 @@ const projects = [
       "Font Awesome",
       "Landing Page",
     ],
-    category: "Frontend Development",
+    category: "UI / Landing Pages",
     link: "https://game-file-opal.vercel.app/",
   },
   {
@@ -90,7 +86,7 @@ const projects = [
       "Local Storage",
       "E-commerce",
     ],
-    category: "Frontend Development",
+    category: "React Apps",
     link: "https://memorable-water-b-ottle.vercel.app/",
   },
   {
@@ -108,7 +104,7 @@ const projects = [
       "Google Fonts",
       "Landing Page",
     ],
-    category: "Frontend Development",
+    category: "UI / Landing Pages",
     link: "https://flowershop-five-lac.vercel.app/",
   },
   {
@@ -137,7 +133,7 @@ const projects = [
       "Web Development",
       "Vercel Deployment",
     ],
-    category: "JavaScript",
+    category: "JavaScript Apps",
     link: "https://money-disaster.vercel.app/",
   },
 
@@ -165,7 +161,7 @@ const projects = [
       "Web Development",
       "Vercel Deployment",
     ],
-    category: "JavaScript",
+    category: "JavaScript Apps",
     link: "https://pheortube.vercel.app/",
   },
   {
@@ -214,7 +210,7 @@ const projects = [
       "Google Fonts",
       "Landing Page",
     ],
-    category: "Frontend Development",
+    category: "UI / Landing Pages",
     link: "https://fruit-burst-nu.vercel.app/",
   },
   {
@@ -239,7 +235,7 @@ const projects = [
       "Lucide React",
       "Vercel Deployment",
     ],
-    category: "React",
+    category: "UI / Landing Pages",
     link: "https://architecture-file.vercel.app/",
   },
   {
@@ -265,7 +261,7 @@ const projects = [
       "Frontend Development",
       "Vercel Deployment",
     ],
-    category: "React",
+    category: "UI / Landing Pages",
     link: "https://tailwind-react-pricing-options-pi.vercel.app/",
   },
   {
@@ -291,7 +287,7 @@ const projects = [
       "Frontend Development",
       "Vercel Deployment",
     ],
-    category: "React",
+    category: "React Apps",
     link: "https://book-poka.vercel.app/",
   },
   {
@@ -318,7 +314,7 @@ const projects = [
       "Frontend Development",
       "Vercel Deployment",
     ],
-    category: "JavaScript",
+    category: "JavaScript Apps",
     link: "https://petshop-ten-rho.vercel.app/",
   },
   {
@@ -348,7 +344,7 @@ const projects = [
       "Frontend Development",
       "Netlify Deployment",
     ],
-    category: "React",
+    category: "React Apps",
     link: "https://dragonewspranto.netlify.app",
   },
   {
@@ -373,7 +369,7 @@ const projects = [
       "Frontend Development",
       "Vercel Deployment",
     ],
-    category: "UI Design",
+    category: "UI / Landing Pages",
     link: "https://teahouse-six.vercel.app/",
   },
   {
@@ -400,7 +396,7 @@ const projects = [
       "Auction Platform",
       "Vercel Deployment",
     ],
-    category: "React",
+    category: "React Apps",
     link: "https://auction-gallery-7ee5.vercel.app/",
   },
   {
@@ -462,7 +458,7 @@ const projects = [
       "Frontend Development",
       "Vercel Deployment",
     ],
-    category: "UI Design",
+    category: "UI / Landing Pages",
     link: "https://frame-flow-premium-gallery-ix6y.vercel.app/",
   },
   {
@@ -490,7 +486,7 @@ const projects = [
       "Frontend Development",
       "Vercel Deployment",
     ],
-    category: "React",
+    category: "React Apps",
     link: "https://calcspace-calculator.vercel.app/",
   },
 ];
@@ -661,12 +657,25 @@ function TechTicker() {
 function ProjectsSection() {
   const [filter, setFilter] = useState("All");
   const reduceMotion = useReducedMotion();
-  const filters = ["All", "React", "Full Stack", "UI Design"];
+  const filters = [
+    "All",
+    "Full Stack",
+    "React Apps",
+    "JavaScript Apps",
+    "UI / Landing Pages",
+  ];
+
+  const categoryCounts = projects.reduce((counts, project) => {
+    counts[project.category] = (counts[project.category] || 0) + 1;
+    return counts;
+  }, {});
 
   const filteredProjects =
     filter === "All"
       ? projects
       : projects.filter((project) => project.category === filter);
+
+  const visibleCount = filteredProjects.length;
 
   return (
     <section id="projects" className="section projects-section">
@@ -683,10 +692,12 @@ function ProjectsSection() {
       </div>
 
       <div className="project-total" aria-live="polite">
-        <strong>{String(projects.length).padStart(2, "0")}</strong>
+        <strong key={filter}>{String(visibleCount).padStart(2, "0")}</strong>
         <span>
-          <b>Projects showcased</b>
-          <small>Personal projects and practical experiments</small>
+          <b>{filter === "All" ? "Projects showcased" : filter}</b>
+          <small>
+            Showing {visibleCount} of {projects.length} projects
+          </small>
         </span>
       </div>
 
@@ -703,7 +714,8 @@ function ProjectsSection() {
             onClick={() => setFilter(item)}
             aria-pressed={filter === item}
           >
-            {item}
+            <span>{item}</span>
+            <small>{item === "All" ? projects.length : categoryCounts[item] || 0}</small>
           </button>
         ))}
       </div>
@@ -892,20 +904,24 @@ function App() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2, ease }}
           >
+            <div className="portrait-shape portrait-shape-back" />
+            <div className="portrait-shape portrait-shape-front" />
             <div className="orbit orbit-one" />
             <div className="orbit orbit-two" />
 
             <div className="portrait-frame">
-              <img src={profilePic} alt="Shakibur Rahman Pranto" />
+              <img src="/8d0aec01-5351-415f-bf90-b2c47956f254.png" alt="Shakibur Rahman Pranto" />
+              <span className="portrait-shade" />
             </div>
 
             <div className="floating-label label-top">
-              <Code2 size={17} /> Building for the web
+              <Code2 size={17} /> Frontend developer
             </div>
             <div className="floating-label label-bottom">
               <span className="availability-dot" />
               Open to opportunities
             </div>
+            <div className="portrait-stamp">DESIGN<br />· BUILD<br />· LEARN</div>
             <div className="hero-caption">
               <span>BASED IN BANGLADESH</span>
               <span>01 / 05</span>
