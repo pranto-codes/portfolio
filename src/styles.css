@@ -1485,7 +1485,6 @@ main {
   }
 }
 
-
 /* -------------------------------------------------------
    Visual refresh — editorial ink, coral and electric blue
    ------------------------------------------------------- */
@@ -1510,13 +1509,25 @@ main {
 
 body {
   background:
-    radial-gradient(ellipse at 86% 4%, rgba(83, 102, 220, 0.10), transparent 31rem),
-    radial-gradient(ellipse at 4% 34%, rgba(239, 91, 76, 0.055), transparent 28rem),
+    radial-gradient(
+      ellipse at 86% 4%,
+      rgba(83, 102, 220, 0.1),
+      transparent 31rem
+    ),
+    radial-gradient(
+      ellipse at 4% 34%,
+      rgba(239, 91, 76, 0.055),
+      transparent 28rem
+    ),
     var(--bg);
   color: var(--text);
 }
 
-h1, h2, h3, .logo, .project-total > strong {
+h1,
+h2,
+h3,
+.logo,
+.project-total > strong {
   font-family: "Space Grotesk", "Manrope", sans-serif;
 }
 
@@ -1604,7 +1615,7 @@ a:focus-visible {
 
 .hero-visual::before {
   width: 80%;
-  background: radial-gradient(circle, rgba(83, 102, 220, 0.20), transparent 68%);
+  background: radial-gradient(circle, rgba(83, 102, 220, 0.2), transparent 68%);
 }
 
 .portrait-shape {
@@ -1618,7 +1629,7 @@ a:focus-visible {
 .portrait-shape-back {
   background: linear-gradient(145deg, #5366dc, #8995f1);
   transform: rotate(9deg) translate(15px, 4px);
-  box-shadow: 0 24px 70px rgba(83, 102, 220, 0.20);
+  box-shadow: 0 24px 70px rgba(83, 102, 220, 0.2);
 }
 
 .portrait-shape-front {
@@ -1636,7 +1647,9 @@ a:focus-visible {
   background: #dfe3f4;
   box-shadow: 0 28px 75px rgba(25, 27, 43, 0.18);
   transform: rotate(2deg);
-  transition: transform 0.45s cubic-bezier(.2,.8,.2,1), box-shadow 0.45s ease;
+  transition:
+    transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.45s ease;
 }
 
 .hero-visual:hover .portrait-frame {
@@ -1669,7 +1682,9 @@ a:focus-visible {
 }
 
 @keyframes orbit-drift {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .floating-label {
@@ -1688,8 +1703,13 @@ a:focus-visible {
 }
 
 @keyframes label-float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-7px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
 }
 
 .portrait-stamp {
@@ -1730,7 +1750,11 @@ a:focus-visible {
 }
 
 .skills-section {
-  background: radial-gradient(ellipse at 50% 45%, rgba(83, 102, 220, 0.06), transparent 65%);
+  background: radial-gradient(
+    ellipse at 50% 45%,
+    rgba(83, 102, 220, 0.06),
+    transparent 65%
+  );
 }
 
 .skill-card {
@@ -1820,7 +1844,7 @@ a:focus-visible {
 
 .project-card:hover {
   border-color: rgba(83, 102, 220, 0.32);
-  box-shadow: 0 20px 48px rgba(25, 27, 43, 0.10);
+  box-shadow: 0 20px 48px rgba(25, 27, 43, 0.1);
 }
 
 .project-image {
@@ -1854,7 +1878,11 @@ a:focus-visible {
 .publication {
   border-color: rgba(83, 102, 220, 0.18);
   background:
-    radial-gradient(ellipse at 90% 10%, rgba(83, 102, 220, 0.12), transparent 55%),
+    radial-gradient(
+      ellipse at 90% 10%,
+      rgba(83, 102, 220, 0.12),
+      transparent 55%
+    ),
     #fff;
   box-shadow: 0 12px 38px rgba(25, 27, 43, 0.05);
 }
@@ -1947,3 +1975,194 @@ a:focus-visible {
   }
 }
 
+.publication {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 48px;
+  align-items: center;
+  padding: 42px;
+  border: 1px solid #e5e7eb;
+  border-radius: 24px;
+  background: linear-gradient(135deg, #ffffff, #f8fafc);
+  box-shadow: 0 15px 45px rgba(15, 23, 42, 0.06);
+  overflow: hidden;
+}
+
+.publication-image {
+  position: relative;
+  min-height: 340px;
+  height: 100%;
+  border-radius: 17px;
+  overflow: hidden;
+  background: #e2e8f0;
+}
+
+.publication-image img {
+  width: 100%;
+  height: 100%;
+  min-height: 340px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.publication-image:hover img {
+  transform: scale(1.04);
+}
+
+.publication-image-label {
+  position: absolute;
+  left: 18px;
+  bottom: 18px;
+  padding: 9px 15px;
+  border-radius: 30px;
+  background: rgba(15, 23, 42, 0.85);
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.publication-content {
+  padding: 12px 0;
+}
+
+.publication-topline {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #64748b;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+  margin-bottom: 25px;
+}
+
+.publication-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #16a34a;
+}
+
+.publication-copy .eyebrow,
+.publication-content .eyebrow {
+  color: #16a34a;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.publication-content h2 {
+  color: #0f172a;
+  font-size: clamp(27px, 3vw, 39px);
+  line-height: 1.2;
+  font-weight: 800;
+  letter-spacing: -1.3px;
+  margin-bottom: 20px;
+}
+
+.publication-content h2 span {
+  color: #64748b;
+}
+
+.publication-description {
+  color: #64748b;
+  font-size: 15px;
+  line-height: 1.9;
+  max-width: 570px;
+}
+
+.publication-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 23px;
+  padding-bottom: 23px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.publication-meta span {
+  color: #475569;
+  background: #f1f5f9;
+  padding: 7px 11px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.publication-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 24px;
+}
+
+.publication-author {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.author-icon {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: #15803d;
+  background: #dcfce7;
+}
+
+.publication-author strong,
+.publication-author small {
+  display: block;
+}
+
+.publication-author strong {
+  color: #0f172a;
+  font-size: 13px;
+}
+
+.publication-author small {
+  color: #94a3b8;
+  font-size: 11px;
+  margin-top: 4px;
+}
+
+@media (max-width: 768px) {
+  .publication {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 22px;
+  }
+
+  .publication-image,
+  .publication-image img {
+    min-height: 260px;
+  }
+
+  .publication-content h2 {
+    font-size: 29px;
+  }
+}
+
+@media (max-width: 480px) {
+  .publication {
+    padding: 16px;
+    border-radius: 17px;
+  }
+
+  .publication-footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .publication-footer .primary-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

@@ -1127,22 +1127,63 @@ function App() {
 
         <Reveal>
           <section className="publication section">
-            <div className="publication-mark">
-              <Sparkles size={23} />
+            <div className="publication-image">
+              <img
+                src="/publication.png"
+                alt="Featured article published in Dhaka Opinion Magazine"
+              />
+              <span className="publication-image-label">
+                Featured Publication
+              </span>
             </div>
-            <div className="publication-copy">
+
+            <div className="publication-content">
+              <div className="publication-topline">
+                <span className="publication-dot"></span>
+                WRITING & RESEARCH
+              </div>
+
               <p className="eyebrow">BEYOND DEVELOPMENT</p>
-              <h2>Trade on Edge: 90 Days to Reshape Economy</h2>
-              <p>Published writer in Dhaka Opinion Magazine.</p>
+
+              <h2>
+                US Tariffs Against Bangladesh:
+                <span> 90 Days to Negotiate and Plan for Its Economy</span>
+              </h2>
+
+              <p className="publication-description">
+                A published contribution to Dhaka Opinion Magazine exploring the
+                economic implications of US tariffs on Bangladesh and the
+                importance of strategic trade negotiations and export
+                diversification.
+              </p>
+
+              <div className="publication-meta">
+                <span>Dhaka Opinion Magazine</span>
+                <span>April 13, 2025</span>
+                <span>3 min read</span>
+              </div>
+
+              <div className="publication-footer">
+                <div className="publication-author">
+                  <span className="author-icon">
+                    <Sparkles size={17} />
+                  </span>
+                  <div>
+                    <strong>Published Writer</strong>
+                    <small>Economics & Policy</small>
+                  </div>
+                </div>
+
+                <a
+                  className="primary-btn"
+                  href="https://dhakaopinionmagazine.com/2025/04/13/trade-on-edge-90-days-to-reshape-economy/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Read Article <ArrowUpRight size={18} />
+                </a>
+              </div>
             </div>
-            <a
-              className="primary-btn"
-              href="https://dhakaopinionmagazine.com/2025/04/13/trade-on-edge-90-days-to-reshape-economy/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Read article <ArrowUpRight size={18} />
-            </a>
           </section>
         </Reveal>
 
