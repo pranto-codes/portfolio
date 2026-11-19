@@ -55,6 +55,28 @@ const projects = [
     link: "https://prantomess-blog.netlify.app/",
   },
   {
+    title: "Law.BD – Lawyer Appointment Booking Platform",
+    description:
+      "A modern and responsive lawyer appointment booking website designed to make legal services more accessible and convenient. Features a professional homepage, lawyer profile cards, detailed attorney information, appointment booking functionality, booking management with cancellation options, and dedicated About, Blogs, and Contact pages. Designed with a clean legal-inspired interface, elegant typography, professional color combinations, interactive elements, and responsive layouts. Built with React, Tailwind CSS, and React Router, the project demonstrates component-based architecture, dynamic data rendering, client-side routing, localStorage-based booking management, reusable components, and responsive UI development.",
+    image: "/lawbd.png",
+    tags: [
+      "React",
+      "JavaScript",
+      "Tailwind CSS",
+      "DaisyUI",
+      "React Router",
+      "React Hooks",
+      "Local Storage",
+      "Dynamic Routing",
+      "Appointment Booking",
+      "Responsive Design",
+      "Reusable Components",
+      "Frontend Development",
+    ],
+    category: "React Applications",
+    link: "https://lawyers-lyart.vercel.app/",
+  },
+  {
     title: "Gamer – Online Gaming Platform",
     description:
       "A modern and responsive gaming website designed to deliver an immersive digital gaming experience. Features an engaging hero section, gaming video gallery, game categories, instant-play promotions, company information, and career opportunities. Designed with bold typography, a dark gaming-inspired interface, vibrant neon accents, interactive hover effects, and responsive layouts. Built with HTML5 and CSS3, the project demonstrates semantic markup, modern CSS layouts, responsive web design, and interactive UI development.",
@@ -461,6 +483,37 @@ const projects = [
     category: "UI / Landing Pages",
     link: "https://frame-flow-premium-gallery-ix6y.vercel.app/",
   },
+
+  {
+    title: "Donate Bangladesh",
+    description:
+      "A responsive donation management platform built to support humanitarian relief campaigns across Bangladesh. The application allows users to contribute to different campaigns, track donation progress, monitor their available balance, and view donation history. It features interactive donation forms, input validation, dynamic balance updates, campaign progress tracking, and a user-friendly interface. The project demonstrates practical JavaScript concepts, including DOM manipulation, event handling, conditional rendering, reusable utility functions, and dynamic UI updates.",
+    image: "/donate-bangladesh.png",
+    tags: [
+      "JavaScript",
+      "HTML5",
+      "CSS3",
+      "Tailwind CSS",
+      "DaisyUI",
+      "Responsive Design",
+      "Donation Management",
+      "DOM Manipulation",
+      "Event Handling",
+      "Input Validation",
+      "Dynamic UI Updates",
+      "State Management",
+      "Array Methods",
+      "Conditional Rendering",
+      "Reusable Functions",
+      "Interactive UI",
+      "UI/UX Design",
+      "Frontend Development",
+      "Vercel Deployment",
+    ],
+    category: "JavaScript Apps",
+    link: "https://donate-bd-six.vercel.app/",
+  },
+
   {
     title: "CalcSpace",
     description:
@@ -715,7 +768,9 @@ function ProjectsSection() {
             aria-pressed={filter === item}
           >
             <span>{item}</span>
-            <small>{item === "All" ? projects.length : categoryCounts[item] || 0}</small>
+            <small>
+              {item === "All" ? projects.length : categoryCounts[item] || 0}
+            </small>
           </button>
         ))}
       </div>
@@ -910,7 +965,10 @@ function App() {
             <div className="orbit orbit-two" />
 
             <div className="portrait-frame">
-              <img src="/8d0aec01-5351-415f-bf90-b2c47956f254.png" alt="Shakibur Rahman Pranto" />
+              <img
+                src="/8d0aec01-5351-415f-bf90-b2c47956f254.png"
+                alt="Shakibur Rahman Pranto"
+              />
               <span className="portrait-shade" />
             </div>
 
@@ -921,7 +979,11 @@ function App() {
               <span className="availability-dot" />
               Open to opportunities
             </div>
-            <div className="portrait-stamp">DESIGN<br />· BUILD<br />· LEARN</div>
+            <div className="portrait-stamp">
+              DESIGN
+              <br />· BUILD
+              <br />· LEARN
+            </div>
             <div className="hero-caption">
               <span>BASED IN BANGLADESH</span>
               <span>01 / 05</span>
