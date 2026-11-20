@@ -1004,6 +1004,7 @@ function App() {
             title="Curious by nature. A builder by practice."
             description="I enjoy understanding how things work, then using that knowledge to create something useful."
           />
+
           <div className="about-grid">
             <Reveal>
               <div className="about-index">01 / THINK</div>
@@ -1015,6 +1016,7 @@ function App() {
                 problems, and approach challenges from different perspectives.
               </p>
             </Reveal>
+
             <Reveal delay={0.12}>
               <div className="about-index">02 / BUILD</div>
               <h3>Learning through real projects.</h3>
@@ -1024,6 +1026,36 @@ function App() {
                 technologies. I believe consistency, curiosity, and learning
                 from mistakes are essential to becoming a better developer.
               </p>
+            </Reveal>
+
+            <Reveal delay={0.2}>
+              <div className="about-index">03 / PERSONAL DETAILS</div>
+              <h3>A little more about me.</h3>
+
+              <div className="personal-details">
+                <div className="personal-detail">
+                  <span>Date of Birth</span>
+                  <strong>13 January 2005</strong>
+                </div>
+
+                <div className="personal-detail">
+                  <span>Address</span>
+                  <strong>
+                    Area : Dhormotola, Post Office: Sadar, District: Jashore,
+                    Bangladesh
+                  </strong>
+                </div>
+
+                <div className="personal-detail">
+                  <span>Education</span>
+                  <strong>Islamic University, Kushtia</strong>
+                </div>
+
+                <div className="personal-detail">
+                  <span>Field of Study</span>
+                  <strong>Economics</strong>
+                </div>
+              </div>
             </Reveal>
           </div>
         </section>

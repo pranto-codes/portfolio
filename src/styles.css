@@ -2166,3 +2166,37 @@ a:focus-visible {
     justify-content: center;
   }
 }
+
+.personal-details {
+  display: grid;
+  gap: 18px;
+  margin-top: 24px;
+}
+
+.personal-detail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+}
+
+.personal-detail span {
+  color: #888;
+  font-size: 13px;
+}
+
+.personal-detail strong {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-color, inherit);
+}
+
+@media (max-width: 480px) {
+  .personal-detail {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
